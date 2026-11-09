@@ -1,0 +1,68 @@
+// base color
+$blue: #324157;
+$light-blue: #3A71A8;
+$red: #C03639;
+$pink: #E65D6E;
+$green: #30B08F;
+$tiffany: #4AB7BD;
+$yellow: #FEC171;
+$panGreen: #30B08F;
+
+// 黑金主题：菜单/侧边栏配色（编译期变量，与 black-gold.scss 的运行时变量配套）
+$base-menu-color: #a9a7a0;          // 未选中菜单文字：暖灰
+$base-menu-color-active: #f0d998;   // 选中态：浅金
+$base-menu-background: #0a0c10;     // 侧边栏：近黑
+$base-logo-title-color: #e8d9a8;    // Logo 标题：浅金
+
+$base-menu-light-color: #e9e6df;
+$base-menu-light-background: #14171d;
+$base-logo-light-title-color: #e8d9a8;
+
+$base-sub-menu-background: #12151b; // 子菜单底
+$base-sub-menu-hover: #1e2118;      // 子菜单 hover：暗金
+
+// 自定义暗色菜单风格（备用方案，保持注释）
+/**
+$base-menu-color:hsla(0,0%,100%,.65);
+$base-menu-color-active:#fff;
+$base-menu-background:#001529;
+$base-logo-title-color: #ffffff;
+
+$base-menu-light-color:rgba(0,0,0,.70);
+$base-menu-light-background:#ffffff;
+$base-logo-light-title-color: #001529;
+
+$base-sub-menu-background:#000c17;
+$base-sub-menu-hover:#001528;
+*/
+
+$--color-primary: #d4af37;         // 主色：香槟金
+$--color-success: #67C23A;
+$--color-warning: #E6A23C;
+$--color-danger: #F56C6C;
+$--color-info: #909399;
+$--color-function3: #14171d;
+$--border-color-base: #2c313a;     // 边框色
+$--background-color-base: #14171d; // 背景色
+$--color-black:#000000;            // 基础黑
+$base-sidebar-width: 200px;
+$--color-text-primary: #e9e6df;    // 主要文字：暖白
+// the :export directive is the magic sauce for webpack
+// https://www.blumatador.com/blog/how-to-share-variables-between-js-and-sass
+:export {
+  menuColor: $base-menu-color;
+  menuLightColor: $base-menu-light-color;
+  menuColorActive: $base-menu-color-active;
+  menuBackground: $base-menu-background;
+  menuLightBackground: $base-menu-light-background;
+  subMenuBackground: $base-sub-menu-background;
+  subMenuHover: $base-sub-menu-hover;
+  sideBarWidth: $base-sidebar-width;
+  logoTitleColor: $base-logo-title-color;
+  logoLightTitleColor: $base-logo-light-title-color;
+  primaryColor: $--color-primary;
+  successColor: $--color-success;
+  dangerColor: $--color-danger;
+  infoColor: $--color-info;
+  warningColor: $--color-warning;
+}

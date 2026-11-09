@@ -1,0 +1,12 @@
+# 统一换行符，避免 Windows / macOS 之间整文件 diff
+* text=auto
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.exe binary
+*.pdb binary
+*.dll binary
+*.jar binary

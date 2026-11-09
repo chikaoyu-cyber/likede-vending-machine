@@ -1,0 +1,191 @@
+/* ==========================================================
+   立可得 · 售货机大屏黑金主题
+   覆盖 style.css 里原有的橙黄横幅 / 白底商品卡 / 灰色弹窗
+   只改配色与背景，不动原有布局尺寸；删除本文件引用即可回滚
+   ========================================================== */
+:root {
+  --lk-gold: #d4af37;
+  --lk-gold-light: #f0d998;
+  --lk-gold-deep: #b8912a;
+  --lk-ink: #0d0f13;
+  --lk-panel: #1a1e25;
+  --lk-text: #e9e6df;
+}
+
+html,
+body {
+  color: var(--lk-text);
+}
+
+body {
+  background: radial-gradient(120% 55% at 82% 0%, #2b2116 0%, #14161b 42%, #0b0d11 100%) fixed;
+  color: var(--lk-text);
+}
+
+.aui-flexView {
+  background: transparent;
+}
+
+/* ---------- 顶部品牌横幅 ---------- */
+.aui-fresh-box {
+  height: 11rem;
+  background: #0b0c0f;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.32);
+  box-shadow: 0 6px 26px rgba(0, 0, 0, 0.5);
+}
+
+.aui-fresh-box-detail {
+  background: #0b0c0f;
+}
+
+.aui-search-box {
+  height: 11rem;
+  background: url('../images/banner-gold.png') center center no-repeat;
+  background-size: 100% 100%;
+}
+
+.aui-navBar {
+  background: #0b0c0f;
+}
+
+.aui-center-title {
+  color: var(--lk-gold-light);
+}
+
+/* ---------- 商品区 ---------- */
+.aui-goods-item {
+  margin: 0 auto;
+}
+
+.aui-list-theme-box {
+  padding: 1rem 0.6rem;
+}
+
+.aui-list-item {
+  background: linear-gradient(155deg, #242832 0%, #171a20 100%);
+  border: 1px solid rgba(212, 175, 55, 0.24);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.42);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.aui-list-item:hover {
+  border-color: rgba(240, 217, 152, 0.75);
+  transform: translateY(-2px);
+}
+
+.aui-list-theme-img {
+  background: radial-gradient(circle at 50% 45%,
+      rgba(255, 240, 205, 0.13) 0%,
+      rgba(255, 240, 205, 0) 72%);
+  border-radius: 10px;
+}
+
+.aui-list-theme-title {
+  color: var(--lk-text);
+}
+
+.aui-list-theme-message p {
+  color: var(--lk-gold-light);
+  font-weight: 600;
+}
+
+/* ---------- 售罄商品 ---------- */
+.aui-list-item-end {
+  background: linear-gradient(155deg, #1a1c22 0%, #111318 100%);
+  border: 1px solid rgba(212, 175, 55, 0.12);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  opacity: 0.68;
+}
+
+.aui-list-theme-message-end {
+  background: transparent;
+  border-radius: 10px;
+}
+
+.aui-list-item-end .aui-list-theme-title {
+  color: #a8a49a;
+}
+
+.aui-list-theme-message-end p {
+  color: #8f8b80;
+}
+
+/* ---------- 底部提示 ---------- */
+.aui-text p {
+  color: #8f8b80;
+  letter-spacing: 2px;
+}
+
+/* ---------- 支付弹窗 ---------- */
+.mask {
+  background: rgba(3, 4, 6, 0.82);
+}
+
+.mask .payInfo {
+  background: linear-gradient(155deg, #242832 0%, #14161b 100%);
+  border: 1px solid rgba(212, 175, 55, 0.38);
+  color: var(--lk-text);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75);
+}
+
+.mask .payInfo .cls {
+  background: rgba(212, 175, 55, 0.16);
+  color: var(--lk-gold-light);
+  border: 1px solid rgba(212, 175, 55, 0.42);
+}
+
+.mask .payInfo .info {
+  border-top: 1px solid rgba(212, 175, 55, 0.24);
+}
+
+.mask .payInfo .info .tit {
+  color: var(--lk-text);
+}
+
+.mask .payInfo .info .tit p:last-child {
+  color: var(--lk-gold-light);
+}
+
+.selectedpay .title {
+  color: var(--lk-gold-light);
+}
+
+.selectedpay .selectedpays .Payment p {
+  color: var(--lk-text);
+}
+
+/* ---------- 模板遗留区块（当前页面未用到，统一后避免日后启用露白） ---------- */
+.product,
+.device,
+.pay,
+.pay-wait {
+  background: #171a20;
+  color: var(--lk-text);
+}
+
+.product-sx .product-img {
+  background-color: #242832;
+}
+
+.product-sx .product-name {
+  color: var(--lk-text);
+}
+
+.product-sx .product-price,
+.pay-wait .pay-price span {
+  color: var(--lk-gold-light);
+}
+
+.pay-wait .pay-go {
+  background: linear-gradient(135deg, var(--lk-gold-light), var(--lk-gold-deep));
+  color: #17140d;
+}
+
+.slider-item {
+  background: var(--lk-panel);
+}
+
+.m-slider {
+  box-shadow: 0 4px 22px rgba(212, 175, 55, 0.18);
+}

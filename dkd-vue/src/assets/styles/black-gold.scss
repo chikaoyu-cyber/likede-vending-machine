@@ -1,0 +1,350 @@
+/* ==========================================================================
+   立可得管理后台 · 黑金主题 (Black & Gold)
+   --------------------------------------------------------------------------
+   设计原则：大面积用带灰度的近黑，金色只做点缀（主按钮 / 选中态 / 标题 /
+   链接 / 表头），文字用暖白而非纯白，边框低对比。避免大面积高饱和与白底残留。
+   所有色值集中在此文件，调整风格只改「色板」即可。
+   ========================================================================== */
+
+:root {
+  /* ---- 色板 ---- */
+  --bg-page: #0d0f13;          /* 页面最底层 */
+  --bg-base: #14171d;          /* 内容区 */
+  --bg-panel: #1a1e25;         /* 卡片 / 输入框 / 表头 */
+  --bg-elevated: #20252d;      /* 弹窗 / 下拉 / 悬浮层 */
+  --bg-sidebar: #0a0c10;       /* 侧边栏 */
+  --bg-sidebar-sub: #12151b;   /* 子菜单 */
+  --line: #2c313a;             /* 主边框 */
+  --line-soft: #23272e;        /* 弱边框 / 表格行线 */
+
+  --text-main: #e9e6df;        /* 暖白主文字 */
+  --text-sub: #a9aaae;         /* 次要文字 */
+  --text-muted: #74777e;       /* 弱化文字 */
+
+  --gold-1: #f0d998;           /* 浅金：高亮文字 / hover */
+  --gold-2: #d4af37;           /* 主金：按钮 / 选中 / 链接 */
+  --gold-3: #b8912a;           /* 深金：按下 / 描边 */
+  --gold-ink: #1a1508;         /* 金底上的深色文字（保证对比度） */
+  --gold-soft: rgba(212, 175, 55, 0.10);
+  --gold-soft-strong: rgba(212, 175, 55, 0.20);
+}
+
+/* --------------------------------------------------------------------------
+   Element Plus 暗色变量：本文件在官方 dark/css-vars.css 之后加载，同权重覆盖
+   -------------------------------------------------------------------------- */
+html.dark {
+  --el-color-primary: #d4af37;
+  --el-color-primary-light-3: #e2c66c;
+  --el-color-primary-light-5: #ecd694;
+  /* 暗色主题下 light-7/8/9 常被当作「浅底」使用，这里改成暗金，避免刺眼白块 */
+  --el-color-primary-light-7: #7a6631;
+  --el-color-primary-light-8: #4c4023;
+  --el-color-primary-light-9: #332c19;
+  --el-color-primary-dark-2: #b8912a;
+
+  --el-bg-color: var(--bg-panel);
+  --el-bg-color-page: var(--bg-page);
+  --el-bg-color-overlay: var(--bg-elevated);
+
+  --el-text-color-primary: var(--text-main);
+  --el-text-color-regular: var(--text-sub);
+  --el-text-color-secondary: var(--text-muted);
+  --el-text-color-placeholder: #6c6f76;
+  --el-text-color-disabled: #5b5e65;
+
+  --el-border-color: var(--line);
+  --el-border-color-light: #262b33;
+  --el-border-color-lighter: #20242b;
+  --el-border-color-extra-light: #1c2026;
+  --el-border-color-hover: var(--gold-3);
+
+  --el-fill-color-blank: var(--bg-panel);
+  --el-fill-color: #232830;
+  --el-fill-color-light: #1e222a;
+  --el-fill-color-lighter: #191d23;
+  --el-fill-color-darker: #262b33;
+  --el-fill-color-disabled: #191d23;
+
+  --el-mask-color: rgba(0, 0, 0, 0.72);
+  --el-overlay-color-lighter: rgba(0, 0, 0, 0.72);
+  --el-box-shadow: 0 10px 32px rgba(0, 0, 0, 0.60);
+  --el-box-shadow-light: 0 4px 16px rgba(0, 0, 0, 0.45);
+  --el-box-shadow-lighter: 0 2px 10px rgba(0, 0, 0, 0.35);
+
+  --el-disabled-bg-color: #1a1e24;
+  --el-disabled-text-color: #63666d;
+  --el-disabled-border-color: var(--line);
+
+  /* 表单控件 */
+  --el-input-bg-color: var(--bg-panel);
+  --el-input-border-color: var(--line);
+  --el-input-text-color: var(--text-main);
+  --el-input-placeholder-color: var(--text-muted);
+  --el-input-hover-border-color: var(--gold-3);
+  --el-input-focus-border-color: var(--gold-2);
+  --el-textarea-bg-color: var(--bg-panel);
+
+  /* 表格 */
+  --el-table-bg-color: var(--bg-base);
+  --el-table-tr-bg-color: var(--bg-base);
+  --el-table-header-bg-color: var(--bg-panel);
+  --el-table-header-text-color: var(--gold-1);
+  --el-table-text-color: var(--text-main);
+  --el-table-border-color: var(--line);
+  --el-table-row-hover-bg-color: var(--gold-soft);
+  --el-table-current-row-bg-color: var(--gold-soft-strong);
+  --el-table-expanded-cell-bg-color: var(--bg-base);
+  --el-table-fixed-box-shadow: 8px 0 12px rgba(0, 0, 0, 0.35);
+
+  /* 分页 */
+  --el-pagination-button-bg-color: var(--bg-panel);
+  --el-pagination-text-color: var(--text-sub);
+  --el-pagination-button-color: var(--text-sub);
+  --el-pagination-hover-color: var(--gold-1);
+}
+
+/* --------------------------------------------------------------------------
+   基础底色与文字
+   -------------------------------------------------------------------------- */
+html,
+body,
+#app {
+  background: var(--bg-page) !important;
+  color: var(--text-main) !important;
+}
+
+#app .main-container {
+  background-color: var(--bg-page) !important;
+}
+
+.app-container {
+  color: var(--text-main);
+}
+
+/* 全局样式里的浅色块 */
+aside {
+  background: var(--bg-panel) !important;
+  color: var(--text-main) !important;
+  border-left: 3px solid var(--gold-2);
+}
+aside a { color: var(--gold-1) !important; }
+aside a:hover { color: var(--gold-2) !important; }
+
+.sub-navbar {
+  background: linear-gradient(90deg, #1b1f26 0%, #2a2517 100%) !important;
+  border-bottom: 1px solid var(--line);
+}
+.sub-navbar .subtitle { color: var(--gold-1) !important; }
+.sub-navbar.draft,
+.sub-navbar.deleted { background: #20242b !important; }
+
+.link-type,
+.link-type:focus { color: var(--gold-1) !important; }
+.link-type:hover { color: var(--gold-2) !important; }
+
+/* --------------------------------------------------------------------------
+   侧边栏：深色底 + 金色选中指示
+   -------------------------------------------------------------------------- */
+#app .sidebar-container {
+  background-color: var(--bg-sidebar) !important;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.55) !important;
+  border-right: 1px solid var(--line-soft);
+
+  .el-menu { background-color: var(--bg-sidebar) !important; }
+
+  .el-menu-item,
+  .el-sub-menu__title { color: var(--text-sub) !important; }
+
+  .el-menu-item:hover,
+  .el-sub-menu__title:hover,
+  .nest-menu .el-menu-item:hover {
+    background-color: var(--gold-soft) !important;
+    color: var(--gold-1) !important;
+  }
+
+  .theme-dark .nest-menu .el-sub-menu > .el-sub-menu__title,
+  .theme-dark .el-sub-menu .el-menu-item {
+    background-color: var(--bg-sidebar-sub) !important;
+  }
+
+  .el-menu-item.is-active {
+    position: relative;
+    background: linear-gradient(90deg, var(--gold-soft-strong), rgba(212, 175, 55, 0.02)) !important;
+    color: var(--gold-1) !important;
+  }
+  .el-menu-item.is-active::after {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--gold-2);
+  }
+  .el-menu-item.is-active .svg-icon,
+  .el-menu-item:hover .svg-icon { color: var(--gold-1) !important; }
+}
+
+/* 折叠菜单的弹出层 */
+.el-menu--vertical .el-menu--popup,
+.el-menu--popup {
+  background: var(--bg-elevated) !important;
+  border: 1px solid var(--line) !important;
+}
+.el-menu--vertical .el-menu-item:hover { background: var(--gold-soft) !important; }
+.el-menu--vertical > .el-menu--popup::-webkit-scrollbar-track-piece { background: var(--bg-page) !important; }
+.el-menu--vertical > .el-menu--popup::-webkit-scrollbar-thumb { background: #3a3f48 !important; }
+
+/* --------------------------------------------------------------------------
+   按钮：金底配深色文字，保证「黑金」且清晰
+   -------------------------------------------------------------------------- */
+.el-button--primary:not(.is-link):not(.is-text):not(.is-plain) {
+  --el-button-text-color: var(--gold-ink);
+  --el-button-bg-color: var(--gold-2);
+  --el-button-border-color: var(--gold-2);
+  --el-button-hover-text-color: var(--gold-ink);
+  --el-button-hover-bg-color: var(--gold-1);
+  --el-button-hover-border-color: var(--gold-1);
+  --el-button-active-text-color: var(--gold-ink);
+  --el-button-active-bg-color: var(--gold-3);
+  --el-button-active-border-color: var(--gold-3);
+  --el-button-disabled-text-color: #6b6350;
+  font-weight: 600;
+}
+.el-button--primary.is-plain,
+.el-button--primary.is-text,
+.el-button--primary.is-link { color: var(--gold-1) !important; }
+.el-button--primary.is-plain:hover { color: var(--gold-ink) !important; }
+
+.el-button.is-link { color: var(--gold-1); }
+.el-button.is-link:hover { color: var(--gold-2); }
+
+/* --------------------------------------------------------------------------
+   表格
+   -------------------------------------------------------------------------- */
+.el-table {
+  background: var(--bg-base) !important;
+  color: var(--text-main) !important;
+
+  th.el-table__cell {
+    background-color: var(--bg-panel) !important;
+    color: var(--gold-1) !important;
+    border-bottom: 1px solid var(--line) !important;
+    font-weight: 600;
+  }
+  td.el-table__cell { border-bottom: 1px solid var(--line-soft) !important; }
+  tr { background-color: var(--bg-base) !important; }
+  .el-table__inner-wrapper::before { background-color: var(--line) !important; }
+  .el-table__empty-block { background: var(--bg-base) !important; }
+  .el-table__empty-text { color: var(--text-muted) !important; }
+  .el-dropdown-link { color: var(--gold-1) !important; }
+}
+
+/* --------------------------------------------------------------------------
+   弹窗 / 卡片 / 下拉 / 表单
+   -------------------------------------------------------------------------- */
+.el-dialog,
+.el-drawer,
+.el-message-box,
+.el-card,
+.el-popper.is-light,
+.el-dropdown-menu,
+.el-select-dropdown,
+.el-picker-panel,
+.el-tree,
+.tree-border {
+  background: var(--bg-elevated) !important;
+  border: 1px solid var(--line) !important;
+  color: var(--text-main) !important;
+}
+.el-popper.is-light .el-popper__arrow::before {
+  background: var(--bg-elevated) !important;
+  border-color: var(--line) !important;
+}
+.el-dialog__title,
+.el-drawer__title,
+.el-message-box__title { color: var(--gold-1) !important; font-weight: 600; }
+.el-dialog__body,
+.el-drawer__body { color: var(--text-sub) !important; }
+.el-dialog__headerbtn .el-dialog__close,
+.el-drawer__close-btn { color: var(--text-sub) !important; }
+.el-dialog__footer,
+.el-dialog__header { border-color: var(--line) !important; }
+.el-form-item__label { color: var(--text-sub) !important; }
+.el-card__header { border-bottom: 1px solid var(--line) !important; color: var(--gold-1) !important; }
+.el-divider { border-color: var(--line) !important; }
+.el-divider__text { background: var(--bg-elevated) !important; color: var(--text-sub) !important; }
+
+.el-input__wrapper,
+.el-textarea__inner,
+.el-select__wrapper {
+  background-color: var(--bg-panel) !important;
+  box-shadow: 0 0 0 1px var(--line) inset !important;
+  color: var(--text-main) !important;
+}
+.el-input__wrapper:hover,
+.el-select__wrapper:hover { box-shadow: 0 0 0 1px var(--gold-3) inset !important; }
+.el-input__inner,
+.el-textarea__inner { color: var(--text-main) !important; }
+.el-input__prefix,
+.el-input__suffix { color: var(--text-muted) !important; }
+.el-range-input { color: var(--text-main) !important; background: transparent !important; }
+.el-range-separator { color: var(--text-muted) !important; }
+
+.el-select-dropdown__item { color: var(--text-main) !important; }
+.el-select-dropdown__item.is-hovering { background: var(--gold-soft) !important; }
+.el-select-dropdown__item.is-selected { color: var(--gold-1) !important; background: var(--gold-soft) !important; }
+
+/* 标签 / 复选 / 单选 / 开关 / 分页 */
+.el-tag--primary { color: var(--gold-1) !important; }
+.el-checkbox__input.is-checked .el-checkbox__inner,
+.el-radio__input.is-checked .el-radio__inner {
+  background: var(--gold-2) !important;
+  border-color: var(--gold-2) !important;
+}
+.el-checkbox__inner::after { border-color: var(--gold-ink) !important; }
+.el-radio__input.is-checked .el-radio__inner::after { background: var(--gold-ink) !important; }
+.el-checkbox__label,
+.el-radio__label { color: var(--text-main) !important; }
+.el-switch.is-checked .el-switch__core {
+  background-color: var(--gold-2) !important;
+  border-color: var(--gold-2) !important;
+}
+.el-pagination.is-background .el-pager li.is-active {
+  background: var(--gold-2) !important;
+  color: var(--gold-ink) !important;
+  font-weight: 600;
+}
+.el-pagination.is-background .el-pager li:hover { color: var(--gold-1) !important; }
+.el-pagination__total,
+.el-pagination__jump { color: var(--text-sub) !important; }
+.pagination-container .el-pagination { background: transparent; }
+
+/* 标签页 tabs / 步骤 / 时间线 */
+.el-tabs__item { color: var(--text-sub) !important; }
+.el-tabs__item.is-active { color: var(--gold-1) !important; }
+.el-tabs__active-bar { background-color: var(--gold-2) !important; }
+.el-tabs__nav-wrap::after { background-color: var(--line) !important; }
+.el-breadcrumb__inner,
+.el-breadcrumb__inner a,
+.el-breadcrumb__separator { color: var(--text-sub) !important; }
+.el-breadcrumb__inner a:hover { color: var(--gold-1) !important; }
+
+/* 消息提示 / 加载遮罩 */
+.el-message { background: var(--bg-elevated) !important; border-color: var(--line) !important; }
+.el-message__content { color: var(--text-main) !important; }
+.el-loading-mask { background-color: rgba(6, 8, 11, 0.72) !important; }
+.el-loading-spinner .path { stroke: var(--gold-2) !important; }
+.el-loading-spinner .el-loading-text { color: var(--gold-1) !important; }
+
+/* 滚动条 */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-page) !important; }
+::-webkit-scrollbar-thumb { background: #3a3f48 !important; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-3) !important; }
+
+/* 通用文字工具类 */
+.text-navy, .text-success, .text-info { color: var(--gold-1) !important; }
+.text-muted { color: var(--text-muted) !important; }
+.form-header { color: var(--gold-1) !important; border-bottom-color: var(--line) !important; }
+.list-group-item { border-color: var(--line-soft) !important; color: var(--text-main) !important; }
+.list-group-striped > .list-group-item { background: var(--bg-base) !important; }
+.sortable-ghost { background: var(--gold-3) !important; color: var(--gold-ink) !important; }
